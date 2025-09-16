@@ -4,21 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.mealsuggestiongenerator.ui.theme.MealSuggestionGeneratorTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,15 +20,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             var timeOfDay by remember {
-                mutableStateOf(value ="")
             }
 
             var mealSuggestion by remember {
                 mutableStateOf(value = "")
             }
 
-            Column {
-                Text(text="Meal Generator")
+            Column(modifier = Modifier.padding(all= 16.dp)) {
                 OutlinedTextField(
                     value = timeOfDay,
                     onValueChange = { text ->
@@ -43,42 +34,47 @@ class MainActivity : ComponentActivity() {
                     },
                     label = {
                         Text(text ="Enter the time of day currently (Example:Morning")
-                    }
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp)
                 )
 
-                // This button is the generating button to bring an outcome based on the time of
-                // day that was picked
-                Button(
-                    onClick = {
-                        mealSuggestion = when (timeOfDay.trim().lowercase()) {
-                            "morning" -> "Pancakes or Smoothie"
-                            "mid-morning snack" -> "Fruit and yoghurt"
-                            "afternoon" -> "Sandwich or Salad"
-                            "afternoon snack" -> "Cookies and milk"
-                            "dinner" -> "Pasta or Stir Fry"
-                            "after dinner snack" -> "Ice cream or Fruit salad"
-                            else -> "No suggestion available"
-                        }
-                    }
+                // Buttons style to be next to each other
+                Row(
+                    modifier = Modifier.padding(vertical = 8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(space =8.dp)
                 ) {
-                    Text(text = "Get Suggestion")
+                    Button(
+                        onClick = {
+                            mealSuggestion = when (timeOfDay.trim().lowercase()) {
+                                "morning" -> "Pancakes or Smoothie"
+                                "mid-morning snack" -> "Fruit and yoghurt"
+                                "afternoon" -> "Sandwich or Salad"
+                                "afternoon snack" -> "Cookies and milk"
+                                "dinner" -> "Pasta or Stir Fry"
+                                "after dinner snack" -> "Ice cream or Fruit salad"
+                                else -> "No suggestion available"
+                            }
+                        }
+                    ) {
+                        Text(text = "Get Suggestion")
+                    }
+                    // Button for resetting the text
+                    // Followed on arc video
+                    Button(
+                        onClick = {
+                            timeOfDay = ""
+                            mealSuggestion = ""
+                        }
+                    ) {
+                        Text(text = "Reset")
+                    }
                 }
 
                 // Display Suggestion
                 Text(text = "Suggestion: $mealSuggestion")
-
-                // Button for resetting the text
-                // Followed on arc video
-                Button(
-                    onClick = {
-                        timeOfDay = ""
-                        mealSuggestion = ""
-                    }
-                ) {
-                    Text(text = "Reset")
-                }
             }
         }
     }
 }
-
