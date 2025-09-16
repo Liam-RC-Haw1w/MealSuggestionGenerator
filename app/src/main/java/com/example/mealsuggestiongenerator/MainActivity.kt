@@ -13,13 +13,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mealsuggestiongenerator.ui.theme.MealSuggestionGeneratorTheme
-
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             var timeOfDay by remember {
+                mutableStateOf(value = "")
             }
 
             var mealSuggestion by remember {
@@ -27,6 +32,7 @@ class MainActivity : ComponentActivity() {
             }
 
             Column(modifier = Modifier.padding(all= 16.dp)) {
+                Text(text = "Meal Generator")
                 OutlinedTextField(
                     value = timeOfDay,
                     onValueChange = { text ->
