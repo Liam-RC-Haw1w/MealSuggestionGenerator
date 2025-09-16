@@ -64,9 +64,6 @@ class MainActivity : ComponentActivity() {
                     Text(text = "Get Suggestion")
                 }
 
-                // Display Suggestion
-                Text(text = "Suggestion: $mealSuggestion")
-
                 // Button for resetting the text
                 // Followed on arc video
                 Button(
