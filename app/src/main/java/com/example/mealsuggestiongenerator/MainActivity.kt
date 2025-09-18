@@ -63,8 +63,8 @@ class MainActivity : ComponentActivity() {
                                 "afternoon snack" -> "Cookies and milk"
                                 "dinner" -> "Pasta or Stir Fry"
                                 "after dinner snack" -> "Ice cream or Fruit salad"
-                                else -> "Please enter the following options: Morning, Mid-morning snack, "+
-                                         "Afternoon, Afternoon Snack, Dinner, After Dinner Snack"
+                                else -> "Please enter the following options: Morning, Mid-morning " +
+                                        "snack," + " Afternoon, Afternoon Snack, Dinner, After Dinner Snack"
                             }
                         }
                     ) { // Button name to get a suggestion
