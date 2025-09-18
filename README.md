@@ -1,5 +1,7 @@
 # MealSuggestionGenerator
 Meal suggestion app that generates meal ideas based on time of day - IMAD5112 rosebank college project
+Recording link - https://advtechonline-my.sharepoint.com/:v:/r/personal/st10499386_rcconnect_edu_za/Documents/Recordings/Meeting%20with%20Liam%20David%20Kaal-20250918_231632-Meeting%20Recording.mp4?csf=1&web=1&e=smWHLN&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
+Youtube recording link - https://youtu.be/yshjU5rjrq4
 
 This app is created to provide the user meal suggestions based on their time of day they have inputted. It will bring an suggestion once they have entered and there is a reset button to remove the suggestions along with the input box text
 
